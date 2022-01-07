@@ -1,0 +1,46 @@
+﻿@{
+    if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            ViewData["Title"] = @item.Name;
+        }
+    }
+    else
+    {
+        ViewData["Title"] = "Пироги";
+    }
+    
+}
+
+<div class="jumbotron mt-2">
+    <div class="card text-center mt-5">
+            <div class="card" style="max-width: 1300px;">
+                <div class="row">
+                    @{
+                        if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="col-md-6">
+                                    <img src="@item.Image" style="height: 100%;" class="img-fluid rounded-start" alt="pirog">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body my-5">
+                                        <h3 class="card-title">@item.Name</h3>
+                                        <h5 class="card-title">Состав:</h5>
+                                        <p class="card-text">@item.Compound</p>
+                                        <p class="card-text"><small class="text-muted">Диаметр: @item.Diameter см &ensp; Вес: @item.Weight гр &ensp; Начинка: @item.Filling</small></p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <h3>Цена: @item.Cost₽</h3>
+                                            <a href="#" class="btn btn-outline-success float-right">В корзину</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+        </div>
+    </div>
+</div>

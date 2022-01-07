@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Пироги";
+}
+
+<div class="jumbotron">
+    
+    <div class="album py-5 bg-light ">
+        <h1 class="mb-4 pt-2 text-center">Пироги</h1>
+        <div class="container">
+            <div class="row">
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var Data in Model)
+                        {
+                            <div class="col-md-4">
+                                <div class="card mb-4 box-shadow">
+                                    <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="@Data.Image" data-holder-rendered="true">
+                                    <div class="card-body">
+                                        <h5 class="card-text">@Data.Name</h5>
+                                        <p>@Data.Weight гр</p>
+                                        <p><strong>@Data.Cost₽</strong></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <a asp-controller="Pie" asp-action="About" asp-route-id=@Data.Id class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-outline-success">В корзину</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+                @*<div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/pirog.jpg" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h5 class="card-text">Осетинский пирог с сыром.</h5>
+                            <p>1000 гр</p>
+                            <p><strong>800₽</strong></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-success">В корзину</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/pirog.jpg" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h5 class="card-text">Осетинский пирог с сыром.</h5>
+                            <p>1000 гр</p>
+                            <p><strong>800₽</strong></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-success">В корзину</button>
+                                </div>
+                                <small class="text-muted">25 минут</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/pirog.jpg" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h5 class="card-text">Осетинский пирог с сыром.</h5>
+                            <p>1000 гр</p>
+                            <p><strong>800₽</strong></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-success">В корзину</button>
+                                </div>
+                                <small class="text-muted">25 минут</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/pirog.jpg" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h5 class="card-text">Осетинский пирог с сыром.</h5>
+                            <p>1000 гр</p>
+                            <p><strong>800₽</strong></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-success">В корзину</button>
+                                </div>
+                                <small class="text-muted">25 минут</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/pirog.jpg" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h5 class="card-text">Осетинский пирог с сыром.</h5>
+                            <p>1000 гр</p>
+                            <p><strong>800₽</strong></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-success">В корзину</button>
+                                </div>
+                                <small class="text-muted">25 минут</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/pirog.jpg" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h5 class="card-text">Осетинский пирог с сыром.</h5>
+                            <p>1000 гр</p>
+                            <p><strong>800₽</strong></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-success">В корзину</button>
+                                </div>
+                                <small class="text-muted">25 минут</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/pirog.jpg" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h5 class="card-text">Осетинский пирог с сыром.</h5>
+                            <p>1000 гр</p>
+                            <p><strong>800₽</strong></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-success">В корзину</button>
+                                </div>
+                                <small class="text-muted">25 минут</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/pirog.jpg" data-holder-rendered="true">
+                        <div class="card-body">
+                            <h5 class="card-text">Осетинский пирог с сыром.</h5>
+                            <p>1000 гр</p>
+                            <p><strong>800₽</strong></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-success">В корзину</button>
+                                </div>
+                                <small class="text-muted">25 минут</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
