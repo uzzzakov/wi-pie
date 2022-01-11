@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Таблицы";
+    string[] TableHeaders = new string[]
+            {
+               "ID"
+              ,"Название"
+              ,"Состав"
+              ,"Цена"
+              ,"Диаметр"
+              ,"Начинка"
+              ,"Вес"
+              ,"Фото"
+              ,"Действие"
+            };
+}
+
+<div class="jumbotron mt-5">
+    <div class="table text-center">
+        <table class="table table-bordered table-hover">
+            <div style="font-size:30px; font-weight: 900;" class="mb-3">
+                Пироги
+                <a asp-controller="Bdro" asp-action="Logout" class="btn btn-danger float-right">Logout</a>
+                <a href="#" class="btn btn-primary float-right mr-3">Add <i class="fas fa-plus"></i></a>
+            </div>
+            <thead>
+                <tr>
+                    @{
+                        foreach(var head in TableHeaders)
+                        {
+                            if (head == "Действие")
+                            {
+                                <th colspan="2">@head</th>
+                            }
+                            else
+                            {
+                                <th>@head</th>
+                            }
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var Data in Model)
+                        {
+                            <tr>
+                                <td class="align-middle">@Data.Id</td>
+                                <td class="align-middle">@Data.Name</td>
+                                <td class="align-middle">@Data.Compound</td>
+                                <td class="align-middle">@Data.Cost</td>
+                                <td class="align-middle">@Data.Diameter</td>
+                                <td class="align-middle">@Data.Filling</td>
+                                <td class="align-middle">@Data.Weight</td>
+                                <td class="align-middle">@Data.Image</td>
+                                <td class="align-middle"><a href="#"><i class="fas fa-pen" style="color:#FFC107;"></i></a></td>
+                                <td class="align-middle"><a href="#"><i class="fas fa-trash" style="color:#F44336;"></i></a></td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

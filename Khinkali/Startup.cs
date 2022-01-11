@@ -31,28 +31,14 @@ namespace Khinkali
 
             services.AddDistributedMemoryCache();
             services.AddMvc();
-            services.AddSession(options =>
-            {
-                // chto ya pitalsya sdelat //
-                options.IdleTimeout = TimeSpan.FromMinutes(1);
-                /*options.IdleTimeout = TimeSpan.FromSeconds(10);*/
-                /*options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;*/
-
-                // tvoe rewenie - ne srabotalo (owibku dalo)//
-                //options.Cookie.ApplicationCookie.ExpireTimeSpan = new TimeSpan(0, 0, 0);
-
-                // tvoe ispravlenoe rewenie - ne rabotaet (owibku daet) //
-                //options.Cookie.Expiration = new TimeSpan(0, 0, 10);  
-
-
-            });
 
             // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Bdro/Index");
+                    options.Cookie.Name = "Login";
+                    options.Cookie.MaxAge = TimeSpan.FromMinutes(5);
                 });
             services.AddControllersWithViews();
         }
@@ -67,8 +53,6 @@ namespace Khinkali
 
             app.UseAuthentication();    // аутентификация
             app.UseAuthorization();     // авторизация
-
-            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

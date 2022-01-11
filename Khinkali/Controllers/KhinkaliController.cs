@@ -1,86 +1,26 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Khinkali.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Khinkali.Controllers
 {
     public class KhinkaliController : Controller
     {
-        // GET: KhinkaliController
-        public ActionResult Index()
+        private AccountContext db;
+        public KhinkaliController(AccountContext context)
         {
-            return View();
-        }
-        public ActionResult About()
-        {
-            return View();
-        }
-        // GET: KhinkaliController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+            db = context;
         }
 
-        // GET: KhinkaliController/Create
-        public ActionResult Create()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            return View(await db.khinkali.ToListAsync());
         }
-
-        // POST: KhinkaliController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> About(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: KhinkaliController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: KhinkaliController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: KhinkaliController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: KhinkaliController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return View(await db.khinkali.FirstOrDefaultAsync(p => p.Id.Equals(id)));
         }
     }
 }

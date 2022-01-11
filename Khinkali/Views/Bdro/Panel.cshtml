@@ -2,11 +2,9 @@
     ViewData["Title"] = "Таблицы";
 }
 
-<div class="jumbotron mt-5">
-    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Table" asp-route-table="pies">Pies</a>
-    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Table" asp-route-table="khinkali">Khinkali</a>
-    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Table" asp-route-table="drinks">Drinks</a>
-
-    @*zdes bil kod tablici*@
-
+<div class="jumbotron mt-5 text-center">
+    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Pietable">Pies</a>
+    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Khinkalitable">Khinkali</a>
+    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Drinktable">Drinks</a>
+    <a class="btn btn-danger"  asp-controller="Bdro" asp-action="Logout">Logout</a>
 </div>

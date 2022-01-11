@@ -37,9 +37,9 @@ namespace Khinkali.Controllers
                 {
                     await Authenticate(model.Name); // аутентификация
 
-                    return RedirectToAction("Index", "Pie");
+                    return RedirectToAction("Panel", "Bdro"); // perenapravit na admin panel
                 }
-                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                ModelState.AddModelError("", "Incorrect login and(or) password");
             }
             return View(model);
         }
@@ -63,114 +63,27 @@ namespace Khinkali.Controllers
             return RedirectToAction("Index", "Bdro");
         }
 
-        /*[Authorize]
-        public IActionResult Table()
-        {
-            return View();
-        }*/
-
-        /*SqlConnection con = new SqlConnection();
-        SqlCommand com = new SqlCommand();
-        SqlDataReader dr;
-        List<Pie> pies = new List<Pie>();
-        // GET: BdroController
-        [HttpGet]
-        public ActionResult Index()
+        [Authorize]
+        public IActionResult Panel()
         {
             return View();
         }
-
-        void connectionString()
+        [Authorize]
+        public async Task<ActionResult> Pietable()
         {
-            con.ConnectionString = "data source=UZZZAKOV; database=WiPieDB; integrated security=SSPI";
-        }
-        private void FetchPie()
-        {
-            connectionString();
-            if (pies.Count > 0)
-            {
-                pies.Clear();
-            }
-            try
-            {
-                con.Open();
-                com.Connection = con;
-                com.CommandText = "SELECT TOP 100 [id],[name],[compound],[cost],[diameter],[filling],[weight],[image] FROM [WiPieDB].[dbo].[pies]";
-                dr = com.ExecuteReader();
-                while (dr.Read())
-                {
-                    pies.Add(new Pie()
-                    {
-                        Id = dr["id"].ToString(),
-                        Name = dr["name"].ToString(),
-                        Compound = dr["compound"].ToString(),
-                        Cost = dr["cost"].ToString(),
-                        Diameter = dr["diameter"].ToString(),
-                        Filling = dr["filling"].ToString(),
-                        Weight = dr["weight"].ToString(),
-                        Image = dr["image"].ToString()
-                    });
-                }
-                con.Close();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return View(await db.pies.ToListAsync());
         }
 
-        [HttpPost]
-        public ActionResult Verify(Account acc)
+        [Authorize]
+        public async Task<ActionResult> Khinkalitable()
         {
-            connectionString();
-            con.Open();
-            com.Connection = con;
-            com.CommandText = "select * from admins where username='" + acc.Name + "' and password='" + acc.Password + "'";
-            dr = com.ExecuteReader();
-            if (dr.Read())
-            {
-                con.Close();
-                FetchPie();
-                return View("Panel", pies);
-            }
-            else
-            {
-                con.Close();
-                return View("Error");
-            }
-
-        }
-        //vozmojno xuynya
-        public ActionResult Table(string table)
-        {
-            switch (table)
-            {
-                case "pies":
-                    FetchPie();
-                    break;
-                default:
-                    break;
-            }
-            return View(pies);
+            return View(await db.khinkali.ToListAsync());
         }
 
-        // GET: BdroController/Create
-        [HttpPost]
-        public ActionResult Create(Account acc)
+        [Authorize]
+        public async Task<ActionResult> Drinktable()
         {
-            var query = "insert into admins(username, password) values(@username, @password)";
-            connectionString();
-            using (SqlCommand com = new SqlCommand(query, con))
-            {
-                com.Parameters.Add(new SqlParameter("username", acc.Name));
-                com.Parameters.Add(new SqlParameter("password", acc.Password));
-
-                con.Open();
-                com.ExecuteNonQuery();
-            }
-
-            return View("Error");
-        } */
-
+            return View(await db.drinks.ToListAsync());
+        }
     }
 }

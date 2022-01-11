@@ -54,7 +54,6 @@ C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Pie\A
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Khinkali\About.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink\About.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.SqlServer.Types.dll
-C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Bdro\Table.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\EntityFramework.SqlServer.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\EntityFramework.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
@@ -88,3 +87,6 @@ C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\runtimes\win-x86\
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Bdro\Pietable.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Bdro\Drinktable.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Bdro\Khinkalitable.cshtml.g.cs
