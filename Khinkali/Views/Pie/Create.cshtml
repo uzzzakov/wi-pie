@@ -1,0 +1,80 @@
+﻿@model Khinkali.Models.Pie
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron mt-5">
+    <h1>Create</h1>
+
+    <h4>Pie</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Compound" class="control-label"></label>
+                    <input asp-for="Compound" class="form-control" />
+                    <span asp-validation-for="Compound" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cost" class="control-label"></label>
+                    <input asp-for="Cost" class="form-control" />
+                    <span asp-validation-for="Cost" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Diameter" class="control-label"></label>
+                    <input asp-for="Diameter" class="form-control" />
+                    <span asp-validation-for="Diameter" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Filling" class="control-label"></label>
+                    <input asp-for="Filling" class="form-control" />
+                    <span asp-validation-for="Filling" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Weight" class="control-label"></label>
+                    <input asp-for="Weight" class="form-control" />
+                    <span asp-validation-for="Weight" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Picture" class=control-label></label>
+                    <div class="custom-file">
+                        <input asp-for="Picture" class="custom-file-input" id="pic"
+                        onchange="document.getElementById('picture').src = window.URL.createObjectURL(this.files[0])"/>
+                        <label class="custom-file-label" for="pic">Choose file</label>
+                    </div>
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+                    <img id="picture" src="" alt="" style="width:600px;height: 400px;border:1px;margin-top:20px;margin-left:80px;position: absolute;top: 85px;"/>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-controller="Bdro" asp-action="Pietable">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        $(".custom-file-input").on("change", function(){
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+}
