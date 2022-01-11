@@ -133,9 +133,10 @@ namespace Khinkali.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var pie = await db.pies.FindAsync(id);
+            DeleteFile(pie.Image);
             db.pies.Remove(pie);
             await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Pietable", "Bdro");
         }
         private bool PieExists(int id)
         {
@@ -161,7 +162,8 @@ namespace Khinkali.Controllers
 
         private void DeleteFile(string img)
         {
-            string path = @"~/images/" + img;
+            string folder = Path.Combine(webHostEnvironment.WebRootPath, "images");
+            string path = Path.Combine(folder, img);
             FileInfo fileInf = new FileInfo(path);
             if (fileInf.Exists)
             {
