@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label asp-for="Picture" class=control-label></label>
                     <div class="custom-file">
-                        <input asp-for="Picture" class="custom-file-input" id="pic"
+                        <input asp-for="Picture" accept=".jpg, .jpeg, .png" class="custom-file-input" id="pic"
                         onchange="document.getElementById('picture').src = window.URL.createObjectURL(this.files[0])"/>
                         <label class="custom-file-label" for="pic">Choose file</label>
                     </div>
@@ -76,5 +76,4 @@
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
     </script>
-
 }

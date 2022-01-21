@@ -54,8 +54,6 @@ C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Pie\A
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Khinkali\About.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink\About.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.SqlServer.Types.dll
-C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\EntityFramework.SqlServer.dll
-C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\EntityFramework.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -69,7 +67,6 @@ C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.Identit
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\System.CodeDom.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -169,3 +166,9 @@ C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\runtimes\win-arm6
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Pie\Create.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Pie\Delete.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Pie\Edit.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Khinkali\Create.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Khinkali\Delete.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Khinkali\Edit.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink\Create.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink\Delete.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink\Edit.cshtml.g.cs

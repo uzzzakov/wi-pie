@@ -2,13 +2,12 @@
     ViewData["Title"] = "Таблицы";
     string[] TableHeaders = new string[]
             {
-               "ID"
+               "Фото"
               ,"Название"
               ,"Состав"
               ,"Цена"
               ,"Начинка"
               ,"Количество"
-              ,"Фото"
               ,"Действие"
             };
 }
@@ -19,7 +18,8 @@
             <div style="font-size:30px; font-weight: 900;" class="mb-3">
                 Хинкали
                 <a asp-controller="Bdro" asp-action="Logout" class="btn btn-danger float-right">Logout</a>
-                <a href="#" class="btn btn-primary float-right mr-3">Add <i class="fas fa-plus"></i></a>
+                <a asp-controller="Bdro" asp-action="Panel" class="btn btn-secondary float-right mr-3">Panel</a>
+                <a asp-controller="Khinkali" asp-action="Create" class="btn btn-primary float-right mr-3">Add <i class="fas fa-plus"></i></a>
             </div>
             <thead>
                 <tr>
@@ -45,15 +45,16 @@
                         foreach (var Data in Model)
                         {
                             <tr>
-                                <td class="align-middle">@Data.Id</td>
+                                <td class="align-middle">
+                                    <img src="~/images/@Data.Image" style="width:100px;height:100px;">
+                                </td>
                                 <td class="align-middle">@Data.Name</td>
                                 <td class="align-middle">@Data.Compound</td>
                                 <td class="align-middle">@Data.Cost</td>
                                 <td class="align-middle">@Data.Filling</td>
                                 <td class="align-middle">@Data.Amount</td>
-                                <td class="align-middle">@Data.Image</td>
-                                <td class="align-middle"><a href="#"><i class="fas fa-pen" style="color:#FFC107;"></i></a></td>
-                                <td class="align-middle"><a href="#"><i class="fas fa-trash" style="color:#F44336;"></i></a></td>
+                                <td class="align-middle"><a asp-controller="Khinkali" asp-action="Edit" asp-route-id="@Data.Id"><i class="fas fa-pen" style="color:#FFC107;"></i></a></td>
+                                <td class="align-middle"><a asp-controller="Khinkali" asp-action="Delete" asp-route-id="@Data.Id"><i class="fas fa-trash" style="color:#F44336;"></i></a></td>
                             </tr>
                         }
                     }

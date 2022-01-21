@@ -38,7 +38,7 @@ namespace Khinkali.Models
         [Column(TypeName = "nvarchar(100)")]
         /*[Display(Name = "image")]*/
         public string Image { get; set; }
-        [Required(ErrorMessage = "Please choose image")]
+        /*[Required(ErrorMessage = "Please choose image")]*/
         [Display(Name = "picture")]
         [NotMapped]
         public IFormFile Picture { get; set; }

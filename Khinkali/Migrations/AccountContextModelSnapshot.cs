@@ -47,13 +47,14 @@ namespace Khinkali.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("Volume")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Volume")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -71,19 +72,21 @@ namespace Khinkali.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Compound")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<decimal>("Cost")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Filling")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 

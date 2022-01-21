@@ -6,7 +6,7 @@
 }
 
 <div class="jumbotron mt-5">
-    <h1>Create</h1>
+    <h1>Edit</h1>
 
     <h4>Pie</h4>
     <hr />
@@ -48,12 +48,12 @@
                 <div class="form-group">
                     <label asp-for="Picture" class=control-label></label>
                     <div class="custom-file">
-                        <input asp-for="Picture" class="custom-file-input" id="pic"
+                        <input asp-for="Picture" accept=".jpg, .jpeg, .png" class="custom-file-input" id="pic"
                         onchange="document.getElementById('picture').src = window.URL.createObjectURL(this.files[0])"/>
                         <label class="custom-file-label" for="pic"></label>
                     </div>
                     <span asp-validation-for="Picture" class="text-danger"></span>
-                    <img id="picture" src="" alt="" style="width:600px;height: 400px;border:1px;margin-top:20px;margin-left:80px;position: absolute;top: 85px;"/>
+                    <img id="picture" src="~/images/@Model.Image" alt="" style="width:600px;height: 400px;border:1px;margin-top:20px;margin-left:80px;position: absolute;top: 85px;"/>
                 </div>
 
                 <div class="form-group">
@@ -77,5 +77,4 @@
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
     </script>
-
 }

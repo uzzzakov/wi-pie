@@ -49,7 +49,6 @@ namespace Khinkali.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        /*public async Task<IActionResult> Create([Bind("Id,Name,Compound,Cost,Diameter,Filling,Weight,Image,Picture")] Pie pie)*/
         public async Task<IActionResult> Create(Pie pie)
         {
             string fileName = UploadedFile(pie);
@@ -88,12 +87,19 @@ namespace Khinkali.Controllers
             {
                 try
                 {
-                    string fileName = UploadedFile(pie);
-                    pie.Image = fileName;
-                    db.Attach(pie);
-                    db.Entry(pie).State = EntityState.Modified;
-                    await db.SaveChangesAsync();
-                    
+                    if (pie.Picture != null)
+                    {
+                        string fileName = UploadedFile(pie);
+                        pie.Image = fileName;
+                        db.Attach(pie);
+                        db.Entry(pie).State = EntityState.Modified;
+                        await db.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        pie.Image = await ImageExistAsync(id);
+                        await db.SaveChangesAsync();
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -141,6 +147,13 @@ namespace Khinkali.Controllers
         private bool PieExists(int id)
         {
             return db.pies.Any(e => e.Id == id);
+        }
+        private async Task<string> ImageExistAsync(int id)
+        {
+            string name = null;
+            var pie = await db.pies.FirstOrDefaultAsync(p => p.Id.Equals(id));
+            name = pie.Image;
+            return name;
         }
         private string UploadedFile(Pie pie)
         {
