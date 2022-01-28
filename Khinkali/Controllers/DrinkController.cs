@@ -91,15 +91,10 @@ namespace Khinkali.Controllers
                     {
                         string fileName = UploadedFile(drink);
                         drink.Image = fileName;
-                        db.Attach(drink);
-                        db.Entry(drink).State = EntityState.Modified;
-                        await db.SaveChangesAsync();
                     }
-                    else
-                    {
-                        drink.Image = await ImageExistAsync(id);
-                        await db.SaveChangesAsync();
-                    }
+                    db.Attach(drink);
+                    db.Entry(drink).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -173,13 +168,6 @@ namespace Khinkali.Controllers
                 // альтернатива с помощью класса File
                 // File.Delete(path);
             }
-        }
-        private async Task<string> ImageExistAsync(int id)
-        {
-            string name = null;
-            var drink = await db.drinks.FirstOrDefaultAsync(p => p.Id.Equals(id));
-            name = drink.Image;
-            return name;
         }
         private bool DrinkExists(int id)
         {

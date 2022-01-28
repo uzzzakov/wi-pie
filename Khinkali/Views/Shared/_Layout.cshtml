@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/fontawesome-free-5.15.4-web/css/all.css" />
+
+    @*<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">*@
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <link rel="shortcut icon" href="~/images/icon.png" type="image/x-icon">
 </head>
 <body>
@@ -15,28 +24,50 @@
             background-image: url(/images/bgr5.png);
             background-repeat: repeat;
             background-size: 70%;
+
+            /*font-family: 'Balsamiq Sans', cursive;*/
+            font-family: 'Montserrat Alternates', sans-serif;
         }
         .text-muted {
             color: #000000!important;
         }
         .logo img{
-            height: 50px;
+            height: 55px;
+        }
+        .navnav a{
+            font-size: large;
+        }
+        .head1{
+            font-size: xxx-large;
+        }
+        .parg{
+            font-size: x-large;
+            font-weight: 400;
+        }
+        .modal-content {
+            border-radius: 20px;
+        }
+        .modal-header{
+            border-bottom: none;
+        }
+        .modal-footer{
+            border-top: none;
         }
     </style>
     <div class="modal fade" id="kontakti" tabindex="-1" role="dialog" aria-labelledby="kontakti" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="kontakti">Контакты</h5>
+                <h1 class="modal-title" id="kontakti">Контакты</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="font-size: larger">
                     Звоните по номеру +7 (925) 25 43 567
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Ок</button>
+                <button type="button" style="border-radius: 13px;" class="btn btn-success" data-dismiss="modal">Ок</button>
                 </div>
             </div>
         </div>
@@ -47,7 +78,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto navnav">
           <li class="nav-item active">
             <a class="nav-link" asp-controller="Home" asp-action="Index">Главная <span class="sr-only">(current)</span></a>
           </li>
@@ -76,7 +107,7 @@
 
     <div class="container">
       <footer class="py-3 my-4">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3" style="font-size: large;">
           <li class="nav-item"><a asp-controller="Pie" asp-action="Index" class="nav-link px-2 text-muted">Пироги</a></li>
           <li class="nav-item"><a asp-controller="Khinkali" asp-action="Index" class="nav-link px-2 text-muted">Хинкали</a></li>
           <li class="nav-item"><a asp-controller="Drink" asp-action="Index" class="nav-link px-2 text-muted">Напитки</a></li>

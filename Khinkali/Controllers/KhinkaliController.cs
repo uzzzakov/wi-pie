@@ -91,15 +91,10 @@ namespace Khinkali.Controllers
                     {
                         string fileName = UploadedFile(khinkalis);
                         khinkalis.Image = fileName;
-                        db.Attach(khinkalis);
-                        db.Entry(khinkalis).State = EntityState.Modified;
-                        await db.SaveChangesAsync();
                     }
-                    else
-                    {
-                        khinkalis.Image = await ImageExistAsync(id);
-                        await db.SaveChangesAsync();
-                    }
+                    db.Attach(khinkalis);
+                    db.Entry(khinkalis).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -172,13 +167,6 @@ namespace Khinkali.Controllers
                 // альтернатива с помощью класса File
                 // File.Delete(path);
             }
-        }
-        private async Task<string> ImageExistAsync(int id)
-        {
-            string name = null;
-            var khink = await db.khinkali.FirstOrDefaultAsync(p => p.Id.Equals(id));
-            name = khink.Image;
-            return name;
         }
         private bool KhinkalisExists(int id)
         {

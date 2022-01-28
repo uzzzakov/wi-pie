@@ -91,15 +91,10 @@ namespace Khinkali.Controllers
                     {
                         string fileName = UploadedFile(pie);
                         pie.Image = fileName;
-                        db.Attach(pie);
-                        db.Entry(pie).State = EntityState.Modified;
-                        await db.SaveChangesAsync();
                     }
-                    else
-                    {
-                        pie.Image = await ImageExistAsync(id);
-                        await db.SaveChangesAsync();
-                    }
+                    db.Attach(pie);
+                    db.Entry(pie).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -147,13 +142,6 @@ namespace Khinkali.Controllers
         private bool PieExists(int id)
         {
             return db.pies.Any(e => e.Id == id);
-        }
-        private async Task<string> ImageExistAsync(int id)
-        {
-            string name = null;
-            var pie = await db.pies.FirstOrDefaultAsync(p => p.Id.Equals(id));
-            name = pie.Image;
-            return name;
         }
         private string UploadedFile(Pie pie)
         {
