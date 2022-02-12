@@ -25,7 +25,7 @@
                                                 <a asp-controller="Drink" asp-action="About" asp-route-id=@Data.Id class="btn btn-sm btn-outline-secondary">Подробнее</a>
                                             </div>
                                             <div class="btn-group">
-                                                <a href="#" class="btn btn-sm btn-outline-success">В корзину</a>
+                                                <a asp-controller="Drink" asp-action="AddToCart" asp-route-id=@Data.Id class="btn btn-sm btn-outline-success">В корзину</a>
                                             </div>
                                         </div>
                                     </div>

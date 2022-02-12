@@ -1,4 +1,19 @@
-﻿<!DOCTYPE html>
+﻿﻿@using System.Net.Http
+@using Khinkali.Utility
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    int count = 0;
+    List<Product> products = HttpContextAccessor.HttpContext.Session.Get<List<Product>>("products");
+    if (products==null)
+    {
+        products=new List<Product>();
+    }
+    count = products.Count();
+   
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -28,6 +43,41 @@
             /*font-family: 'Balsamiq Sans', cursive;*/
             font-family: 'Montserrat Alternates', sans-serif;
         }
+        .ssilka{
+            color: #495057!important;
+            text-decoration: none!important;
+        }
+        .ssilka:link {
+            color: #495057!important;
+            text-decoration: none!important;
+        }
+
+        .ssilka:visited {
+            color: #495057!important;
+            text-decoration: none!important;
+        }
+
+        .ssilka:hover {
+            color: #495057!important;
+            text-decoration: none!important;
+        }
+
+        .ssilka:active {
+            color: #495057!important;
+            text-decoration: none!important;
+        }
+        .krug {
+            height: 25px;
+            width: 25px;
+            background-color: rgb(154 157 160);
+            border-radius: 50%;
+            text-align: center;
+            position: relativ!importantportant;
+            top: -27px;
+            left: 27px;
+            font-weight: 600;
+            color: white;
+        }
         .text-muted {
             color: #000000!important;
         }
@@ -52,6 +102,34 @@
         }
         .modal-footer{
             border-top: none;
+        }
+        .close{
+            font-size: 2.0rem !important;
+        }
+        .fa-lg {
+            font-size: 1.1em !important;
+            line-height: 0em !important;
+        }
+        .badge:after{
+            content:attr(value);
+            font-size:15px;
+            color: #fff;
+            background: #c10000;
+            border-radius:50%;
+            padding: 0 5px;
+            position:relative;
+            left:-8px;
+            top:-10px;
+            opacity:0.9;
+        }
+        .chislo{
+            border: none;
+            background-color: transparent;
+            outline: none;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            display: none;
         }
     </style>
     <div class="modal fade" id="kontakti" tabindex="-1" role="dialog" aria-labelledby="kontakti" aria-hidden="true">
@@ -96,6 +174,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#kontakti">Контакты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-controller="Home" asp-action="Cart"><i class="fa badge fa-lg" value=@count>&#xf07a;</i></a>
           </li>
         </ul>
       </div>

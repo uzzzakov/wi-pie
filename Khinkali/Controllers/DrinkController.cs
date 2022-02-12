@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using System.Linq;
 using System.IO;
+using System.Collections.Generic;
+using Khinkali.Utility;
 using System;
 
 namespace Khinkali.Controllers
@@ -172,6 +174,37 @@ namespace Khinkali.Controllers
         private bool DrinkExists(int id)
         {
             return db.drinks.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> AddToCart(int? id)
+        {
+            List<Product> products = new List<Product>();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var drink = await db.drinks
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (drink == null)
+            {
+                return NotFound();
+            }
+            var product = new Product()
+            {
+                Id = drink.Id,
+                Image = drink.Image,
+                Name = drink.Name,
+                Cost = drink.Cost,
+                Amount = 1
+            };
+            products = HttpContext.Session.Get<List<Product>>("products");
+            if (products == null)
+            {
+                products = new List<Product>();
+            }
+            products.Add(product);
+            HttpContext.Session.Set("products", products);
+            return Redirect(Request.Headers["Referer"].ToString());
         }
     }
 }

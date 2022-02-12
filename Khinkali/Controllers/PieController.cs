@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using Khinkali.Utility;
 
 namespace Khinkali.Controllers
 {
@@ -172,6 +173,37 @@ namespace Khinkali.Controllers
                 // альтернатива с помощью класса File
                 // File.Delete(path);
             }
+        }
+        /*[HttpPost]*/
+        public async Task<IActionResult> AddToCart(int? id)
+        {
+            List<Product> products = new List<Product>();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var pie = await db.pies
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (pie == null)
+            {
+                return NotFound();
+            }
+            var product = new Product()
+            {
+                Id = pie.Id,
+                Image = pie.Image,
+                Name = pie.Name,
+                Cost = pie.Cost,
+                Amount = 1
+            };
+            products = HttpContext.Session.Get<List<Product>>("products");
+            if (products == null)
+            {
+                products = new List<Product>();
+            }
+            products.Add(product);
+            HttpContext.Session.Set("products", products);
+            return Redirect(Request.Headers["Referer"].ToString());
         }
     }
 }

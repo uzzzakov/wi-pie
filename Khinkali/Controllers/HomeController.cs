@@ -1,4 +1,5 @@
 ﻿using Khinkali.Models;
+using Khinkali.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -27,6 +28,31 @@ namespace Khinkali.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult Cart()
+        {
+            List<Product> products = HttpContext.Session.Get<List<Product>>("products");
+            if (products == null)
+            {
+                products = new List<Product>();
+            }
+            return View(products);
+        }
+
+        /*[HttpPost]*/
+        public IActionResult Remove(int? id)
+        {
+            List<Product> products = HttpContext.Session.Get<List<Product>>("products");
+            if (products != null)
+            {
+                var product = products.FirstOrDefault(c => c.Id == id);
+                if (product != null)
+                {
+                    products.Remove(product);
+                    HttpContext.Session.Set("products", products);
+                }
+            }
+            return Redirect(Request.Headers["Referer"].ToString());
         }
     }
 }
