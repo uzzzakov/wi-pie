@@ -8,7 +8,7 @@ namespace Khinkali.Models
         public DbSet<Pie> pies { get; set; }
         public DbSet<Khinkalis> khinkali { get; set; }
         public DbSet<Drink> drinks { get; set; }
-        public DbSet<Product> products { get; set; }
+        public DbSet<Order> orders { get; set; }
         public AccountContext(DbContextOptions<AccountContext> options)
             : base(options)
         {

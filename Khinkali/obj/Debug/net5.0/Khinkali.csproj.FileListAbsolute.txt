@@ -173,3 +173,4 @@ C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink\Delete.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink\Edit.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Home\Cart.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Order\Checkout.cshtml.g.cs

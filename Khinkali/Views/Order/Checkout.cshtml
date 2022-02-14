@@ -1,0 +1,65 @@
+﻿@model Khinkali.Models.Order
+
+@{
+    ViewData["Title"] = "Заказ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Checkout" enctype="multipart/form-data">
+    <section class="vh-100 gradient-custom">
+      <div class="container pt-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="mt-5 col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+                <div class="mb-md-5 mt-md-4">
+
+                  <h2 class="fw-bold mb-2 text-uppercase">Оформление заказа</h2>
+                  <p class="text-white-50 mb-5">Пожалуйста введите свои данные для оформления заказа</p>
+                  <p class="text-white-50 mb-5">* для обязательного заполнения</p>
+
+                  @*<div class="validation" asp-validation-summary="ModelOnly"></div>*@
+
+                  <div class="form-outline form-white mb-4">
+                    <input asp-for="Name" class="form-control form-control-lg" required="Введите имя"/>
+                    <label class="form-label" asp-for="Name">Ваше имя*</label>
+                    @*<span asp-validation-for="Name" />*@
+                  </div>
+
+                  <div class="form-outline form-white mb-4">
+                    <input asp-for="Phone" class="form-control form-control-lg" required="" />
+                    <label asp-for="Phone" class="form-label" >Номер телефона*</label>
+                    @*<span asp-validation-for="Phone" />*@
+                  </div>
+
+                  <div class="form-outline form-white mb-4">
+                    <input asp-for="Email" class="form-control form-control-lg"/>
+                    <label asp-for="Email" class="form-label" >Электронный адрес</label>
+                    @*<span asp-validation-for="Email" />*@
+                  </div>
+
+                  <div class="form-outline form-white mb-4">
+                    <input asp-for="Address" class="form-control form-control-lg" required="" />
+                    <label asp-for="Address" class="form-label" >Адрес доставки*</label>
+                    @*<span asp-validation-for="Address" />*@
+                  </div>
+
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Заказать</button>
+                  <br />
+                  <button asp-controller="Home" asp-action="Cart" class="mt-4 btn btn-sm btn-outline-success">Вернуться в корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</form>
+
+@*<div>
+    <a asp-controller="Home" asp-action="Cart">Вернуться в корзину</a>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
