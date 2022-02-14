@@ -1,10 +1,59 @@
 ﻿@{
     ViewData["Title"] = "Таблицы";
+    string[] TableHeaders = new string[]
+            {
+               "ID"
+              ,"Имя заказчика"
+              ,"Телефон"
+              ,"E-mail"
+              ,"Адрес"
+              ,"Дата"
+              ,"Сумма"
+              ,"Детали"
+            };
 }
-
+@model List<Order>
 <div class="jumbotron mt-5 text-center">
-    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Pietable">Pies</a>
-    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Khinkalitable">Khinkali</a>
-    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Drinktable">Drinks</a>
-    <a class="btn btn-danger"  asp-controller="Bdro" asp-action="Logout">Logout</a>
+    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Pietable">Пироги</a>
+    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Khinkalitable">Хинкали</a>
+    <a class="btn btn-primary" asp-controller="Bdro" asp-action="Drinktable">Напитки</a>
+    <a class="btn btn-danger"  asp-controller="Bdro" asp-action="Logout">Выход</a>
+
+    <div class="table text-center">
+        <table class="table table-bordered table-hover">
+            <div style="font-size:30px; font-weight: 900;" class="mt-2 mb-3">
+                Заказы
+            </div>
+            <thead>
+                <tr>
+                    @{
+                        foreach(var head in TableHeaders)
+                        {
+                            <th>@head</th>
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var Data in Model)
+                        {
+                            <tr>
+                                <td class="align-middle">@Data.Id</td>
+                                <td class="align-middle">@Data.Name</td>
+                                <td class="align-middle">@Data.Phone</td>
+                                <td class="align-middle">@Data.Email</td>
+                                <td class="align-middle">@Data.Address</td>
+                                <td class="align-middle">@Data.Date</td>
+                                <td class="align-middle">@Data.Sum</td>
+                                <td class="align-middle">@Data.Details</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -64,9 +64,9 @@ namespace Khinkali.Controllers
         }
 
         [Authorize]
-        public IActionResult Panel()
+        public async Task<IActionResult> Panel()
         {
-            return View();
+            return View(await db.orders.ToListAsync());
         }
         [Authorize]
         public async Task<ActionResult> Pietable()
