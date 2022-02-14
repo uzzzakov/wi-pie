@@ -15,33 +15,27 @@
                 <div class="mb-md-5 mt-md-4">
 
                   <h2 class="fw-bold mb-2 text-uppercase">Оформление заказа</h2>
-                  <p class="text-white-50 mb-5">Пожалуйста введите свои данные для оформления заказа</p>
-                  <p class="text-white-50 mb-5">* для обязательного заполнения</p>
-
-                  @*<div class="validation" asp-validation-summary="ModelOnly"></div>*@
+                  <p class="text-white-50 mb-2">Пожалуйста введите свои данные для оформления заказа</p>
+                  <p class="text-white-50 small mb-3">* для обязательного заполнения</p>
 
                   <div class="form-outline form-white mb-4">
                     <input asp-for="Name" class="form-control form-control-lg" required="Введите имя"/>
                     <label class="form-label" asp-for="Name">Ваше имя*</label>
-                    @*<span asp-validation-for="Name" />*@
                   </div>
 
                   <div class="form-outline form-white mb-4">
                     <input asp-for="Phone" class="form-control form-control-lg" required="" />
                     <label asp-for="Phone" class="form-label" >Номер телефона*</label>
-                    @*<span asp-validation-for="Phone" />*@
                   </div>
 
                   <div class="form-outline form-white mb-4">
                     <input asp-for="Email" class="form-control form-control-lg"/>
                     <label asp-for="Email" class="form-label" >Электронный адрес</label>
-                    @*<span asp-validation-for="Email" />*@
                   </div>
 
                   <div class="form-outline form-white mb-4">
                     <input asp-for="Address" class="form-control form-control-lg" required="" />
                     <label asp-for="Address" class="form-label" >Адрес доставки*</label>
-                    @*<span asp-validation-for="Address" />*@
                   </div>
 
                   <button class="btn btn-outline-light btn-lg px-5" type="submit">Заказать</button>
@@ -56,10 +50,22 @@
     </section>
 </form>
 
-@*<div>
-    <a asp-controller="Home" asp-action="Cart">Вернуться в корзину</a>
-</div>*@
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        function sendEnquiryform(){
+        var name=$('#name').val();
+        var email=$('#email').val();
+        var message=$('#message').val();
+        $.post("send_mail.php",'name='+name+'&email='+email'&message='+message,function(result,status,xhr) {
+                if( status.toLowerCase()=="error".toLowerCase() )
+                { alert("An Error Occurred.."); }
+                else { 
+                    //alert(result);
+                    $('#sucessMessage').html(result);
+                }
+            })
+            .fail(function(){ alert("something went wrong. Please try again") });
+        }
+    </script>   
 }

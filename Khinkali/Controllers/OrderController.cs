@@ -7,6 +7,8 @@ using Khinkali.Models;
 using Khinkali.Utility;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 
 namespace Khinkali.Controllers
 {
@@ -49,11 +51,37 @@ namespace Khinkali.Controllers
                 anOrder.Sum = products.Sum(c => c.Sum);
             }
 
+            if (anOrder.Email != null)
+            {
+                SendMessage(anOrder.Email, anOrder.Name, anOrder.Details);
+            }
+
             _db.orders.Add(anOrder);
             await _db.SaveChangesAsync();
             HttpContext.Session.Set("products", new List<Product>());
             return RedirectToAction("Index", "Home");
+        }
 
+        private void SendMessage(string email, string name, string details)
+        {
+            string text = details;
+            text += $"\n\nС уважением Wi-Pie";
+
+            MailAddress fromAddress = new MailAddress("23triplezzz23@gmail.com", "Wi-Pie");
+            MailAddress toAddress = new MailAddress(email, name);
+            MailMessage message = new MailMessage(fromAddress, toAddress);
+            message.Body = text;
+            message.Subject = "Спасибо за заказ!";
+
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Host = "smtp.gmail.com";
+            smtpClient.Port = 587;
+            smtpClient.EnableSsl = true;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new NetworkCredential(fromAddress.Address, "zzz232323");
+
+            smtpClient.Send(message);
         }
     }
 }
