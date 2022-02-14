@@ -54,5 +54,50 @@ namespace Khinkali.Controllers
             }
             return Redirect(Request.Headers["Referer"].ToString());
         }
+
+        public IActionResult Plus(int? id)
+        {
+            List<Product> products = HttpContext.Session.Get<List<Product>>("products");
+            if (products != null)
+            {
+                var product = products.FirstOrDefault(c => c.Id == id);
+                if (product != null)
+                {
+                    foreach (var p in products.Where(w => w.Id == id))
+                    {
+                        p.Amount += 1;
+                        p.Sum = p.Cost * p.Amount;
+                    }
+                    HttpContext.Session.Set("products", products);
+                }
+            }
+            return Redirect(Request.Headers["Referer"].ToString());
+        }
+
+        public IActionResult Minus(int? id)
+        {
+            List<Product> products = HttpContext.Session.Get<List<Product>>("products");
+            if (products != null)
+            {
+                var product = products.FirstOrDefault(c => c.Id == id);
+                if (product != null)
+                {
+                    foreach (var p in products.Where(w => w.Id == id))
+                    {
+                        if (p.Amount == 1)
+                        {
+                            return RedirectToAction("Remove", new { id = id });   
+                        }
+                        else 
+                        {
+                            p.Amount -= 1;
+                            p.Sum = p.Cost * p.Amount;
+                        }
+                    }
+                    HttpContext.Session.Set("products", products);
+                }
+            }
+            return Redirect(Request.Headers["Referer"].ToString());
+        }
     }
 }

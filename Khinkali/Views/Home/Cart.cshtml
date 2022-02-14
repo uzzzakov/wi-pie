@@ -22,7 +22,7 @@ else
         <div class="list-group align-middle">
             @foreach (var item in Model)
             {
-                <div class="align-middle list-group-item mb-0 list-group-item-action d-flex gap-5 py-3" aria-current="true">
+                <div style="border-radius:10px;" class="align-middle list-group-item mb-0 list-group-item-action d-flex gap-5 py-3" aria-current="true">
                     <img src="~/images/@item.Image" width="100" height="100" class="rounded-circle flex-shrink-0 m-3">
                     <div class="d-flex gap-3 w-100 justify-content-between align-middle">
                         <div>
@@ -39,21 +39,24 @@ else
                                 contr = "Drink";
                             }
                             <a asp-action="About" asp-route-id=@item.Id asp-controller="@contr"><h4 class="m-3 ssilka">@item.Name</h4></a>
-                            @*<h4 class="m-3">@item.Name</h4>*@
                             <p class="m-3 opacity-75">Кол-во: &nbsp; &nbsp;
-                                <span class="product-minus">
-                                    <img src="https://static.tildacdn.com/lib/linea/c8eecd27-9482-6c4f-7896-3eb09f6a1091/arrows_circle_minus.svg" style="width:16px;height:16px;border:0">
-                                </span>
+                                <a asp-controller="Home" asp-action="Minus" asp-route-id=@item.Id>
+                                    <span class="product-minus">
+                                        <img src="https://static.tildacdn.com/lib/linea/c8eecd27-9482-6c4f-7896-3eb09f6a1091/arrows_circle_minus.svg" style="width:16px;height:16px;border:0">
+                                    </span>
+                                </a>
                                 <span class="product-quantity">
-                                    <input type="number" class="chislo" style="width:35px; text-align:center;" value="@item.Amount" min="0"/>
-                                    @*@item.Amount*@
+                                    <input type="number" class="chislo" style="width:35px; text-align:center;" value="@item.Amount"/>
                                 </span>
-                                <span class="product-plus">
-                                    <img src="https://static.tildacdn.com/lib/linea/c47d1e0c-6880-dc39-ae34-521197f7fba7/arrows_circle_plus.svg" style="width:16px;height:16px;border:0">
-                                </span> шт.
+                                <a asp-controller="Home" asp-action="Plus" asp-route-id=@item.Id>
+                                    <span class="product-plus">
+                                        <img src="https://static.tildacdn.com/lib/linea/c47d1e0c-6880-dc39-ae34-521197f7fba7/arrows_circle_plus.svg" style="width:16px;height:16px;border:0">
+                                    </span>
+                                </a>
+                                 шт.
                             </p>
-                            <input type="hidden" value="@item.Cost" id="product_input_price">
-                            <p class="m-3 opacity-75 product-price">Стоимость: @item.Cost₽</p>
+                            <input type="hidden" value="@item.Sum" id="product_input_price">
+                            <p class="m-3 opacity-75 product-price">Стоимость: @item.Sum₽</p>
                         </div>
                         <a asp-action="Remove" asp-controller="Home" asp-route-id="@item.Id" class="close">
                             <span>&times;</span>
@@ -67,43 +70,9 @@ else
                 <a asp-action="Index" asp-controller="Pie" class="btn btn-success">Продолжить покупки</a>
             </div>
             <div class="col-6 text-right">
-                <h3>Сумма: @Model.Sum(c=>c.Cost)₽ </h3>
+                <h3>Сумма: @Model.Sum(c=>c.Sum)₽ </h3>
                 <a asp-area="Customer" asp-action="Checkout" asp-controller="Order" class="btn btn-info">Заказать</a>
             </div>
         </div>
     </div>
 }
-
-@*@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script type="text/javascript">
-        var plus = document.querySelector(".product-plus");
-        var quantity = document.querySelector(".product-quantity");
-        var minus = document.querySelector(".product-minus");
-        var product_price = document.querySelector("#product_input_price");
-        var price_show = document.querySelector(".product-price");
-
-        plus.addEventListener('click',function(){
-            var increment = parseInt(quantity.value);
-            var price_p = parseInt(product_price.value);
-            if(increment < 8){ 
-                increment = increment + 1; 
-                increment_price = price_p * increment; 
-                quantity.innerHTML = increment; 
-                price_show.innerHTML = increment_price;
-            } 
-        }); 
-    
-        minus.addEventListener('click',function(){ 
-            var increment = parseInt(quantity.value); 
-            var price_p = parseInt(product_price.value); 
-            if(increment > 1){
-                increment = increment - 1;
-                decrease_price = price_p * increment;
-
-                quantity.innerHTML = increment;
-                price_show.innerHTML = decrease_price;
-            }
-        });
-    </script>
-}*@

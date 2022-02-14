@@ -189,20 +189,36 @@ namespace Khinkali.Controllers
             {
                 return NotFound();
             }
-            var product = new Product()
-            {
-                Id = drink.Id,
-                Image = drink.Image,
-                Name = drink.Name,
-                Cost = drink.Cost,
-                Amount = 1
-            };
             products = HttpContext.Session.Get<List<Product>>("products");
             if (products == null)
             {
                 products = new List<Product>();
             }
-            products.Add(product);
+            if (products != null)
+            {
+                var product = products.FirstOrDefault(c => c.Id == id);
+                if (product != null)
+                {
+                    foreach (var p in products.Where(w => w.Id == id))
+                    {
+                        p.Amount += 1;
+                        p.Sum = p.Cost * p.Amount;
+                    }
+                }
+                else
+                {
+                    var pro = new Product()
+                    {
+                        Id = drink.Id,
+                        Image = drink.Image,
+                        Name = drink.Name,
+                        Cost = drink.Cost,
+                        Amount = 1,
+                        Sum = drink.Cost
+                    };
+                    products.Add(pro);
+                }
+            }
             HttpContext.Session.Set("products", products);
             return Redirect(Request.Headers["Referer"].ToString());
         }
