@@ -5,6 +5,15 @@
     
     <div class="album py-5 bg-light ">
         <h1 class="mb-4 pt-2 text-center">Пироги</h1>
+        <div class="mb-4 mx-2 pt-2 text-center link-dark">
+            <a asp-controller="Pie" asp-action="Index" class="link-dark mx-3">Все пироги</a>
+            <a asp-controller="Pie" asp-action="Select" asp-route-category="с мясом" class="link-dark mx-3">Мясные</a>
+            <a asp-controller="Pie" asp-action="Select" asp-route-category="с курицей" class="link-dark mx-3">Куриные</a>
+            <a asp-controller="Pie" asp-action="Select" asp-route-category="сыром" class="link-dark mx-3">Сырные</a>
+            <a asp-controller="Pie" asp-action="Select" asp-route-category="Рыбный" class="link-dark mx-3">Рыбные</a>
+            <a asp-controller="Pie" asp-action="Select" asp-route-category="Сладкий" class="link-dark mx-3">Сладкие</a>
+            <a asp-controller="Pie" asp-action="Select" asp-route-category="Постный" class="link-dark mx-3">Постные</a>
+        </div>
         <div class="container">
             <div class="row">
                 @{
@@ -14,11 +23,18 @@
                         {
                             <div class="col-md-4">
                                 <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="~/images/@Data.Image" data-holder-rendered="true">
+                                    <img class="card-img-top" alt="" style="height: 225px; width: 100%; display: block;" src="@Data.Image"  data-holder-rendered="true">
                                     <div class="card-body">
                                         <h5 class="card-text">@Data.Name</h5>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div id="mydiv"><strong>@Data.Cost₽</strong></div>
+                                            <!--<select id="myselect">
+                                                <option value = "580">800гр</option>
+                                                <option value = "740">1000гр</option>
+                                                <option value = "820">1200гр</option>
+                                            </select>-->
+                                        </div>
                                         <p>@Data.Weight гр</p>
-                                        <p><strong>@Data.Cost₽</strong></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
                                                 <a asp-controller="Pie" asp-action="About" asp-route-id=@Data.Id class="btn btn-sm btn-outline-secondary">Подробнее</a>
@@ -37,3 +53,14 @@
         </div>
     </div>
 </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        document.getElementById("myselect").addEventListener("change", function(){
+          document.getElementById('mydiv').innerHTML = "Цена: "+this.value;   
+        });
+    </script>
+}

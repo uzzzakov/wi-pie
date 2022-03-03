@@ -28,14 +28,13 @@
                     if (Model != null)
                     {
                         <div class="col-md-6">
-                            <img src="~/images/@Model.Image" style="height: 100%;" class="img-fluid rounded-start" alt="">
+                            <img src="@Model.Image" style="height: 100%; width: 100%;" class="img-fluid rounded-start" alt="">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body my-5">
                                 <h1 class="card-title">@Model.Name</h1>
-                                <h3 class="card-title">Состав:</h3>
-                                <p class="card-text">@Model.Compound</p>
-                                <p class="card-text">Кол-во: @Model.Amount шт. &ensp; Начинка: @Model.Filling</p>
+                                <p class="card-text"><b>Состав:</b> @Model.Compound</p>
+                                <p class="card-text"><b>Вес:</b> @Model.Amount гр. &ensp; <b>Начинка:</b> @Model.Filling</p>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <h2>Цена: @Model.Cost₽</h2>
                                     @if (product == null)

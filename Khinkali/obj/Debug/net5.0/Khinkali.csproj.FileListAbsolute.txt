@@ -9,7 +9,6 @@ C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\ref\Khinkali.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Khinkali.pdb
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Khinkali.Views.dll
 C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\Khinkali.Views.pdb
-C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Khinkali.csproj.AssemblyReference.cache
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Khinkali.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Khinkali.AssemblyInfoInputs.cache
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Khinkali.AssemblyInfo.cs
@@ -174,3 +173,11 @@ C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Drink\Edit.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Home\Cart.cshtml.g.cs
 C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Razor\Views\Order\Checkout.cshtml.g.cs
+C:\Users\mu030\source\repos\Khinkali\Khinkali\obj\Debug\net5.0\Khinkali.csproj.AssemblyReference.cache
+C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\publish\web.config
+C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\publish\appsettings.Development.json
+C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\publish\appsettings.json
+C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\publish\Khinkali.deps.json
+C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\publish\Khinkali.runtimeconfig.json
+C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\publish\wwwroot\fontawesome-free-5.15.4-web\metadata\icons.json
+C:\Users\mu030\source\repos\Khinkali\Khinkali\bin\Debug\net5.0\publish\wwwroot\fontawesome-free-5.15.4-web\metadata\shims.json

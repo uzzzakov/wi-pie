@@ -27,6 +27,10 @@ namespace Khinkali.Controllers
         {
             return View(await db.pies.ToListAsync());
         }
+        public async Task<ActionResult> Select(string category)
+        {
+            return View("Index", await db.pies.Where(p => p.Name.Contains(category)).ToListAsync());
+        }
         public async Task<ActionResult> About(int? id)
         {
             if (id == null)

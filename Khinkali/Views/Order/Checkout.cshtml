@@ -6,7 +6,7 @@
 }
 
 <form asp-action="Checkout" enctype="multipart/form-data">
-    <section class="vh-100 gradient-custom">
+    <section class="vh-120 gradient-custom mb-3">
       <div class="container pt-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="mt-5 col-12 col-md-8 col-lg-6 col-xl-5">
@@ -40,7 +40,7 @@
 
                   <button class="btn btn-outline-light btn-lg px-5" type="submit">Заказать</button>
                   <br />
-                  <button asp-controller="Home" asp-action="Cart" class="mt-4 btn btn-sm btn-outline-success">Вернуться в корзину</button>
+                  <a asp-controller="Home" asp-action="Cart" class="mt-4 btn btn-sm btn-outline-success">Вернуться в корзину</a>
                 </div>
               </div>
             </div>

@@ -105,6 +105,12 @@ namespace Khinkali.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Details")
+                        .HasColumnType("nvarchar(MAX)");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(100)");
 
@@ -112,18 +118,12 @@ namespace Khinkali.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("OrderDetails")
-                        .HasColumnType("nvarchar(MAX)");
-
-                    b.Property<string>("OrderNo")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("PhoneNo")
+                    b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<decimal>("Sum")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

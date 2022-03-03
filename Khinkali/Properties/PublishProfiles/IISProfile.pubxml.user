@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется процессом публикации или упаковки вашего веб-проекта. Можно настроить поведение этого процесса,
+изменив этот файл MSBuild. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2022-03-03T01:33:41.9698341Z;False|2022-03-03T04:33:07.3349267+03:00;True|2022-03-03T04:28:15.0960945+03:00;True|2022-03-03T04:26:25.9949656+03:00;True|2022-03-03T02:38:45.7865437+03:00;True|2022-03-03T02:27:08.4048381+03:00;True|2022-03-01T12:18:19.3271598+03:00;True|2022-03-01T12:16:11.5273079+03:00;True|2022-03-01T11:53:06.1978514+03:00;True|2022-02-28T15:40:52.2087427+03:00;False|2022-02-28T15:39:15.1344849+03:00;True|2022-02-28T15:33:27.0048080+03:00;True|2022-02-25T00:35:57.1849018+03:00;True|2022-02-24T12:12:33.7929309+03:00;True|2022-02-24T12:09:06.6272522+03:00;True|2022-02-24T07:27:00.0227708+03:00;True|2022-02-24T07:09:52.7704840+03:00;True|2022-02-24T06:32:02.5614723+03:00;True|2022-02-24T06:26:51.3641427+03:00;True|2022-02-24T06:20:02.0764131+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=wpl42.hosting.reg.ru%3bDatabase=u1600028_WiPieDb%3bUser ID=u1600028_u1600028%3bPassword=qrU2it7QT5GE3ooC%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

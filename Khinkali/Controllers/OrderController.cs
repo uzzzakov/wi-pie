@@ -16,6 +16,7 @@ namespace Khinkali.Controllers
     {
         private AccountContext _db;
         private IWebHostEnvironment webHostEnvironment;
+        private const string promokod = "SALAM-WI-PIE";
         public OrderController(AccountContext context, IWebHostEnvironment webHost)
         {
             _db = context;
@@ -46,6 +47,7 @@ namespace Khinkali.Controllers
                     anOrder.Details += $"{i}. {product.Name} - {product.Amount}шт. Стоимость: {product.Sum}₽;\n";
                     i++;
                 }
+
                 anOrder.Details += $"\nСумма: { products.Sum(c => c.Sum)}₽\n";
                 anOrder.Details += "Дата заказа: " + date.ToString("g");
                 anOrder.Sum = products.Sum(c => c.Sum);
@@ -82,6 +84,7 @@ namespace Khinkali.Controllers
             smtpClient.Credentials = new NetworkCredential(fromAddress.Address, "zzz232323");
 
             smtpClient.Send(message);
+            //smtpClient.SendMailAsync(message);
         }
     }
 }
